@@ -3,9 +3,8 @@ import { HeaderLogoutButton } from "../HeaderLogoutButton/HeaderLogoutButton";
 export const FotoUser = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.user}>
-        <HeaderLogoutButton style={styles.button} />
-      </View>
+      <View style={styles.user}></View>
+      <HeaderLogoutButton style={styles.button} />
     </View>
   );
 };
@@ -25,7 +24,7 @@ const styles = StyleSheet.create({
   },
   button: {
     position: "absolute",
-    top: 40,
-    left: 140,
+    top: 30,
+    right: 140,
   },
 });
