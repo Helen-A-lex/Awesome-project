@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     // paddingBottom: 7,
-    position: "relative",
+
     paddingTop: 92,
     paddingLeft: 16,
     paddingRight: 16,
