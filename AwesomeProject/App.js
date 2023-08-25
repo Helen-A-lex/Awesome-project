@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, ImageBackground } from "react-native";
 import {
   useFonts,
   Roboto_400Regular,
@@ -7,7 +7,7 @@ import {
   Roboto_700Bold,
 } from "@expo-google-fonts/roboto";
 import { RegistrationScreens } from "./Screens/RegistrationScreen/RegistrationScreen";
-import ImageBackground from "./components/ImageBackground/ImageBackground";
+
 // import { LoginScreens } from "./Screens/LoginScreen/LoginScreen";
 
 export default function App() {
@@ -22,7 +22,10 @@ export default function App() {
   }
   return (
     <View style={styles.container}>
-      <ImageBackground style={styles.imageBackground} />
+      <ImageBackground
+        source={require("./assets/background.png")}
+        style={styles.imageBackground}
+      />
       <RegistrationScreens />
       {/* <LoginScreens /> */}
       <StatusBar style="auto" />
@@ -33,19 +36,20 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: "column",
+    // alignItems: "center",
+    // justifyContent: "center",
     // paddingLeft: 16,
     // paddingRight: 16,
   },
   imageBackground: {
-    width: "100%",
-    height: "100%",
+    // width: "100%",
+    // height: "100%",
 
     // alignSelf: "stretch",
     flex: 1,
-    // resizeMode: "cover",
+    resizeMode: "cover",
     // alignSelf: "stretch",
-    // justifyContent: "center",
+    justifyContent: "center",
   },
 });

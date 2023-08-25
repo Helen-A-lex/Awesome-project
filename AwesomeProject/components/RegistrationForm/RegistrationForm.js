@@ -8,56 +8,25 @@ import {
   Keyboard, // імпорт компонента клавіатури
   KeyboardAvoidingView,
   Platform,
+  Alert,
 } from "react-native";
-// import { Formik } from "formik";
+
 import Button from "../Button/Button";
 
-// export const RegistrationForm = (props) => (
-//   <Formik
-//     initialValues={{ login: "", email: "", password: "" }}
-//     onSubmit={(values) => console.log(values)}
-//   >
-//     {({ handleChange, handleBlur, handleSubmit, values }) => (
-//       <View style={[styles.wrap, styles.shadowProp]}>
-//         <Text style={styles.title}>Рeєстрація</Text>
-
-//         <TextInput
-//           style={styles.input}
-//           onChangeText={handleChange("login")}
-//           onBlur={handleBlur("login")}
-//           value={values.login}
-//           placeholder="Логін"
-//         />
-
-//         <TextInput
-//           style={styles.input}
-//           onChangeText={handleChange("email")}
-//           onBlur={handleBlur("email")}
-//           value={values.email}
-//           placeholder="Адреса електронної пошти"
-//         />
-//         <TextInput
-//           style={styles.input}
-//           onChangeText={handleChange("password")}
-//           onBlur={handleBlur("pasword")}
-//           value={values.password}
-//           placeholder="Пароль"
-//         />
-
-//         <Button onPress={handleSubmit} />
-//         <Text style={styles.text}>Вже є акаунт? Увійти</Text>
-//       </View>
-//     )}
-//   </Formik>
-// );
-
-export const RegistrationForm = (props) => {
+export const RegistrationForm = ({ onSubmit }) => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const onLogin = () => {
-    Alert.alert("Credentials", `${login} + ${password} +${email}`);
+
+  const onRegister = () => {
+    Alert.alert(`new user registred succsesfully with ${login} and ${email}`);
+    onSubmit(login, email, password);
+
+    setLogin("");
+    setEmail("");
+    setPassword("");
   };
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={[styles.wrap, styles.shadowProp]}>
@@ -71,6 +40,8 @@ export const RegistrationForm = (props) => {
             style={styles.input}
             onChangeText={setLogin}
             placeholder="Логін"
+            type="text"
+            name="login"
           />
 
           <TextInput
@@ -78,15 +49,19 @@ export const RegistrationForm = (props) => {
             style={styles.input}
             onChangeText={setEmail}
             placeholder="Адреса електронної пошти"
+            type="email"
+            name="email"
           />
           <TextInput
             value={password}
             style={styles.input}
             onChangeText={setPassword}
             placeholder="Пароль"
+            type="password"
+            name="password"
           />
 
-          <Button onPress={onLogin} />
+          <Button onPress={onRegister} />
           <Text style={styles.text}>Вже є акаунт? Увійти</Text>
         </KeyboardAvoidingView>
       </View>
@@ -98,13 +73,13 @@ const styles = StyleSheet.create({
   wrap: {
     justifyContent: "center",
     alignItems: "center",
-    height: 549,
+
     flexShrink: 0,
     backgroundColor: "FFFFFF",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     // paddingBottom: 7,
-
+    height: 549,
     paddingTop: 92,
     paddingLeft: 16,
     paddingRight: 16,
@@ -128,7 +103,7 @@ const styles = StyleSheet.create({
     width: 343,
     height: 50,
     flexShrink: 0,
-    padding: 16,
+
     backgroundColor: "#F6F6F6",
     borderColor: "#E8E8E8",
     borderRadius: 8,
