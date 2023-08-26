@@ -1,37 +1,63 @@
 import React, { useState } from "react";
-import { TextInput, View, Text, StyleSheet } from "react-native";
-import { Formik } from "formik";
+import {
+  TextInput,
+  View,
+  Text,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  Alert,
+} from "react-native";
+
 import Button from "../Button/Button";
 
-export const LoginForm = (props) => (
-  <Formik
-    initialValues={{ email: "", password: "" }}
-    onSubmit={(values) => console.log(values)}
-  >
-    {({ handleChange, handleBlur, handleSubmit, values }) => (
+export const LoginForm = ({ onSubmit }) => {
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+
+  const onLogin = () => {
+    Alert.alert(`Вітаємо в нашому додатку!`);
+    onSubmit(email, password);
+
+    setEmail("");
+    setPassword("");
+  };
+
+  return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={[styles.wrap, styles.shadowProp]}>
         <Text style={styles.title}>Увійти</Text>
+        <KeyboardAvoidingView
+          behavior={Platform.OS == "ios" ? "padding" : "height"}
+          keyboardVerticalOffset={Platform.OS === "android" ? 0 : undefined}
+        >
+          <TextInput
+            value={email}
+            style={styles.input}
+            onChangeText={setEmail}
+            placeholder="Адреса електронної пошти"
+            type="email"
+            name="email"
+          />
+          <TextInput
+            value={password}
+            style={styles.input}
+            onChangeText={setPassword}
+            placeholder="Пароль"
+            type="password"
+            name="password"
+          />
 
-        <TextInput
-          style={styles.input}
-          onChangeText={handleChange("email")}
-          onBlur={handleBlur("email")}
-          value={values.email}
-          placeholder="Адреса електронної пошти"
-        />
-        <TextInput
-          style={styles.input}
-          onChangeText={handleChange("password")}
-          onBlur={handleBlur("pasword")}
-          value={values.password}
-          placeholder="Пароль"
-        />
-        <Button onPress={handleSubmit} />
-        <Text style={styles.text}>Увійти</Text>
+          <Button onPress={onLogin} title={"Увійти"} />
+          <Text style={styles.text}>Немає акаунту? Зареєструватися</Text>
+        </KeyboardAvoidingView>
       </View>
-    )}
-  </Formik>
-);
+    </TouchableWithoutFeedback>
+  );
+};
+
 const styles = StyleSheet.create({
   wrap: {
     justifyContent: "center",
@@ -39,10 +65,8 @@ const styles = StyleSheet.create({
     height: 489,
     flexShrink: 0,
     backgroundColor: "FFFFFF",
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
-    // paddingBottom: 7,
-    position: "relative",
+    borderRadius: 25,
+
     paddingTop: 32,
     paddingLeft: 16,
     paddingRight: 16,
@@ -60,10 +84,11 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "500",
     letterSpacing: 0.3,
-    marginBottom: 52,
+    marginBottom: 33,
+    marginTop: 0,
   },
   input: {
-    width: "100%",
+    width: 343,
     height: 50,
     flexShrink: 0,
     padding: 16,

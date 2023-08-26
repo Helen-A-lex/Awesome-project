@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, Text } from "react-native";
 export default function Button(props) {
-  const { onPress, title = "Зареєструватись" } = props;
+  const { onPress, title } = props;
   return (
     <Pressable style={[styles.button, styles.shadowProp]} onPress={onPress}>
       <Text style={styles.text}>{title}</Text>

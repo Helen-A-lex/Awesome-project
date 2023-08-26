@@ -4,8 +4,8 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableWithoutFeedback, // імпорт компонента обгортки
-  Keyboard, // імпорт компонента клавіатури
+  TouchableWithoutFeedback,
+  Keyboard,
   KeyboardAvoidingView,
   Platform,
   Alert,
@@ -61,7 +61,7 @@ export const RegistrationForm = ({ onSubmit }) => {
             name="password"
           />
 
-          <Button onPress={onRegister} />
+          <Button onPress={onRegister} title={"Зареєструватись"} />
           <Text style={styles.text}>Вже є акаунт? Увійти</Text>
         </KeyboardAvoidingView>
       </View>
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     backgroundColor: "FFFFFF",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
-    // paddingBottom: 7,
+
     height: 549,
     paddingTop: 92,
     paddingLeft: 16,
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "500",
     letterSpacing: 0.3,
-    marginBottom: 52,
+    marginBottom: 33,
   },
   input: {
     width: 343,

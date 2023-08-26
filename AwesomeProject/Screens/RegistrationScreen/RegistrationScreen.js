@@ -15,8 +15,12 @@ export const RegistrationScreens = () => {
       password: password,
     };
     console.log(user);
+    console.log(users);
+    setUsers((prevStateUsers) => {
+      const updatedUsers = [user, ...prevStateUsers];
 
-    setUsers((prevStateUsers) => [user, ...prevStateUsers]);
+      return updatedUsers;
+    });
   }
 
   return (

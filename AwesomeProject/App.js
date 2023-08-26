@@ -6,9 +6,9 @@ import {
   Roboto_500Medium,
   Roboto_700Bold,
 } from "@expo-google-fonts/roboto";
-import { RegistrationScreens } from "./Screens/RegistrationScreen/RegistrationScreen";
+// import { RegistrationScreens } from "./Screens/RegistrationScreen/RegistrationScreen";
 
-// import { LoginScreens } from "./Screens/LoginScreen/LoginScreen";
+import { LoginScreens } from "./Screens/LoginScreen/LoginScreen";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -26,8 +26,8 @@ export default function App() {
         source={require("./assets/background.png")}
         style={styles.imageBackground}
       />
-      <RegistrationScreens />
-      {/* <LoginScreens /> */}
+      {/* <RegistrationScreens /> */}
+      <LoginScreens />
       <StatusBar style="auto" />
     </View>
   );
