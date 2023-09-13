@@ -51,7 +51,6 @@ export const LoginForm = ({ onSubmit }) => {
           />
 
           <Button onPress={onLogin} title={"Увійти"} />
-          <Text style={styles.text}>Немає акаунту? Зареєструватися</Text>
         </KeyboardAvoidingView>
       </View>
     </TouchableWithoutFeedback>
@@ -62,7 +61,7 @@ const styles = StyleSheet.create({
   wrap: {
     justifyContent: "center",
     alignItems: "center",
-    height: 489,
+    // height: 489,
     flexShrink: 0,
     backgroundColor: "FFFFFF",
     borderRadius: 25,
@@ -101,14 +100,5 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto",
     fontSize: 16,
     borderWidth: 1,
-  },
-
-  text: {
-    color: "#1B4371",
-    textAlign: "center",
-    fontFamily: "Roboto",
-    fontSize: 16,
-    fontWeight: 400,
-    marginBottom: 66,
   },
 });

@@ -62,7 +62,6 @@ export const RegistrationForm = ({ onSubmit }) => {
           />
 
           <Button onPress={onRegister} title={"Зареєструватись"} />
-          <Text style={styles.text}>Вже є акаунт? Увійти</Text>
         </KeyboardAvoidingView>
       </View>
     </TouchableWithoutFeedback>
@@ -79,7 +78,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
 
-    height: 549,
+    // height: 549,
     paddingTop: 92,
     paddingLeft: 16,
     paddingRight: 16,
@@ -113,14 +112,5 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto",
     fontSize: 16,
     borderWidth: 1,
-  },
-
-  text: {
-    color: "#1B4371",
-    textAlign: "center",
-    fontFamily: "Roboto",
-    fontSize: 16,
-    fontWeight: 400,
-    marginBottom: 66,
   },
 });

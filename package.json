@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/Helen-A-lex/Awesome-project/issues"
   },
-  "homepage": "https://github.com/Helen-A-lex/Awesome-project#readme"
+  "homepage": "https://github.com/Helen-A-lex/Awesome-project#readme",
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
+    "react-redux": "^8.1.2",
+    "redux-persist": "^6.0.0"
+  }
 }
