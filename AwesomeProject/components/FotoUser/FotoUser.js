@@ -1,10 +1,10 @@
 import { StyleSheet, View } from "react-native";
-import { HeaderLogoutButton } from "../HeaderLogoutButton/HeaderLogoutButton";
+import { FotoUserButtonClose } from "../FotoUserButtonClose/FotoUserButtonClose";
 export const FotoUser = () => {
   return (
     <View style={styles.container}>
       <View style={styles.user}></View>
-      <HeaderLogoutButton style={styles.button} />
+      <FotoUserButtonClose style={styles.button} />
     </View>
   );
 };

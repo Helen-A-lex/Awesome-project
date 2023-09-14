@@ -1,28 +1,32 @@
-import Svg, { Circle, Path } from "react-native-svg";
+import Svg, { Path } from "react-native-svg";
 import { TouchableOpacity } from "react-native";
 export default function SvgComponent(props) {
   return (
     <Svg
-      width={25}
-      height={25}
-      //   fill="none"
+      width={24}
+      height={24}
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 37 37"
+      viewBox="0 0 24 24"
       {...props}
     >
-      <Circle
-        cx="18.4999"
-        cy="18.5"
-        r="12"
-        transform="rotate(-45 18.4999 18.5)"
-        fill="white"
-        stroke="#E8E8E8"
+      <Path
+        d="M10 22H5C3.89543 22 3 21.1046 3 20V4C3 2.89543 3.89543 2 5 2H10"
+        stroke="#BDBDBD"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+
+      <Path
+        d="M17 16L21 12L17 8"
+        stroke="#BDBDBD"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
       <Path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
-        d="M14.2574 13.5503L13.5503 14.2574L17.7929 18.5L13.5503 22.7426L14.2574 23.4497L18.5 19.2071L22.7426 23.4497L23.4498 22.7426L19.2071 18.5L23.4498 14.2574L22.7426 13.5503L18.5 17.7929L14.2574 13.5503Z"
-        fill="#BDBDBD"
+        d="M21 12H9"
+        stroke="#BDBDBD"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
     </Svg>
   );

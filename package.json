@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Helen-A-lex/Awesome-project#readme",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
+    "expo": "^49.0.10",
     "react-redux": "^8.1.2",
     "redux-persist": "^6.0.0"
   }

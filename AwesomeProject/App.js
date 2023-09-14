@@ -2,7 +2,7 @@ import "react-native-gesture-handler";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Button } from "react-native";
+import { HeaderLogoutButton } from "./components/HeaderLogoutButton/HeaderLogoutButton";
 import {
   useFonts,
   Roboto_400Regular,
@@ -11,7 +11,8 @@ import {
 } from "@expo-google-fonts/roboto";
 import { RegistrationScreens } from "./Screens/RegistrationScreen";
 import { LoginScreens } from "./Screens/LoginScreen";
-import Home from "./Screens/Home";
+import { Home } from "./Screens/Home";
+
 const MainStack = createStackNavigator();
 
 export default function App() {
@@ -26,9 +27,17 @@ export default function App() {
   }
   return (
     <NavigationContainer>
-      <MainStack.Navigator>
-        <MainStack.Screen name="Registration" component={RegistrationScreens} />
-        <MainStack.Screen name="Login" component={LoginScreens} />
+      <MainStack.Navigator initialRouteName="Login">
+        <MainStack.Screen
+          name="Registration"
+          component={RegistrationScreens}
+          options={{ headerShown: false }}
+        />
+        <MainStack.Screen
+          name="Login"
+          component={LoginScreens}
+          options={{ headerShown: false }}
+        />
         <MainStack.Screen
           name="Home"
           component={Home}
@@ -36,6 +45,7 @@ export default function App() {
             title: "Публікації",
             headerStyle: {
               backgroundColor: "#FFF",
+
               shadowColor: "#000",
               shadowOpacity: 0.3,
               shadowOffset: {
@@ -51,12 +61,11 @@ export default function App() {
               lineHeight: 22,
             },
             headerTitleAlign: "center",
+            headerTitleContainerStyle: {
+              padding: 10,
+            },
             headerRight: () => (
-              <Button
-                onPress={() => alert("This is a button!")}
-                title="Press me"
-                color="#fff"
-              />
+              <HeaderLogoutButton onPress={() => alert("User logout!")} />
             ),
           }}
         />
